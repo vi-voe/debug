@@ -1,5 +1,6 @@
 var router = require('express').Router();
-var Game = require('../db').import('../models/game');
+const { sequelize, Sequelize } = require('../db');
+const Game = require('../models/game')(sequelize, Sequelize);
 
 router.get('/all', (req, res) => {
     Game.findAll({ where: { owner_id: req.user.id } })
@@ -113,4 +114,4 @@ router.delete('/remove/:id', (req, res) => {
     )
 })
 
-module.exports = routers;
+module.exports = router;
