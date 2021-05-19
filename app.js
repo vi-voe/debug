@@ -1,10 +1,8 @@
-var express = require('express');
-var app = express();
-var sequelize = require('./db');
-var user = require('./controllers/usercontroller');
-var game = require('./controllers/gamecontroller');
+const express = require('express');
+const app = express();
+const user = require('./controllers/usercontroller');
+const game = require('./controllers/gamecontroller');
 
-// sequelize.sync();
 app.use(require('body-parser'));
 app.use('/api/auth', user);
 app.use(require('./middleware/validate-session'));

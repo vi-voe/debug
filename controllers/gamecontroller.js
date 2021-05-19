@@ -1,4 +1,4 @@
-var router = require('express').Router();
+const router = require('express').Router();
 const { sequelize, Sequelize } = require('../db');
 const Game = require('../models/game')(sequelize, Sequelize);
 
