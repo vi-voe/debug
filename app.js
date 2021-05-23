@@ -5,6 +5,7 @@ const user = require('./controllers/usercontroller');
 const game = require('./controllers/gamecontroller');
 
 sequelize.sync();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api/auth', user);

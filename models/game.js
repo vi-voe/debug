@@ -1,7 +1,12 @@
+const TITLE_LENGTH = 25;
+const ESRB_RATING_MAX = 5;
+const USER_RATING_MIN = 1;
+const USER_RATING_MAX = 5;
+
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('game', {
+    return sequelize.define("game", {
         title: {
-            type: DataTypes.STRING(25),
+            type: DataTypes.STRING(TITLE_LENGTH),
             allowNull: false,
         },
 
@@ -16,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
         },
 
         esrb_rating: {
-            type: DataTypes.CHAR(5),
+            type: DataTypes.CHAR(ESRB_RATING_MAX),
             allowNull: false,
         },
 
@@ -24,8 +29,8 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                min: 1,
-                max: 5
+                min: USER_RATING_MIN,
+                max: USER_RATING_MAX
             }
         },
 
